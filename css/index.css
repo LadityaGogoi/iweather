@@ -17,7 +17,7 @@ h1, h3 {
 
 .weather-app {
     min-height: 100vh;
-    background-image: url(/images/day/clear.jpg);
+    background-image: url(/images/day/snowy.jpg); 
     background-repeat: no-repeat;
     background-attachment: fixed;
     background-size: cover;
@@ -106,7 +106,7 @@ h1, h3 {
     position: absolute;
     top: 0;
     right: 0;
-    padding: 1.5em;
+    padding: 1em;
     margin: 0;
     border: none;
     outline: none;
@@ -168,4 +168,18 @@ h1, h3 {
     display: flex;
     justify-content: space-between;
     align-items: center;
+}
+
+@media screen and (max-width: 800px) {
+    .container, .panel {
+        position: relative;
+        width: 100%;
+        top: initial;
+    }
+}
+
+@media screen and (max-width: 500px) {
+    html {
+        font-size: 15px;
+    }
 }
