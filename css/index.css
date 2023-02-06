@@ -74,6 +74,8 @@ h1, h3 {
 .weather img {
     display: block;
     margin: 0.5em;
+    width: 100%;
+    height: 100%;
 }
 
 .brand {
