@@ -42,13 +42,21 @@ cities.forEach((city) => {
 
 
 
-// function for click event
-function formSubmit(event) {
-    console.log(event);
-}
+
 
 // Submit event to the list
-form.addEventListener('submit', formSubmit);
+form.addEventListener('submit', (e) => {
+    e.preventDefault();
+
+    cityInput = search.value;
+
+    if (cityInput === "") return;
+
+    fetchWeatherData();
+
+    search.value = "";
+});
+
 
 
 
