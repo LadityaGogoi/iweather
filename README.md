@@ -154,7 +154,7 @@ function fetchWeatherData() {
             code === 1087 ||
             code === 1135 ||
             code === 1273 ||
-            code === 1276 ||
+            code === 1276 || 
             code === 1279 ||
             code === 1282
         ) {
