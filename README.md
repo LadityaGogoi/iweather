@@ -126,7 +126,7 @@ function fetchWeatherData() {
         // set the default time of day
         let timeOfDay = "day";
         if (!data.current.is_day)
-        {
+        { 
             timeOfDay = "night";
         }
 

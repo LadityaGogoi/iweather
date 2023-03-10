@@ -15,22 +15,8 @@ h1, h3 {
     font-weight: 400;
 }
 
-.weather-app {
-    min-height: 100vh;
-    background-image: url(/src/images/day/clear.jpg); 
-    background-repeat: no-repeat;
-    background-attachment: fixed;
-    background-size: cover;
-    background-position: center;
 
-    color: #fff;
-
-    position: relative;
-    transition: 500ms;
-    opacity: 1;
-}
-
-.weather-app::before {
+.weatherApp::before {
     content: "";
     position: absolute;
     top: 0;
@@ -184,4 +170,391 @@ h1, h3 {
     html {
         font-size: 15px;
     }
+}
+
+
+
+
+/* dynamic styling  */
+
+/* day and clear weather */
+.weatherApp1 {
+    min-height: 100vh;
+    background-image: url(/src/images/day/clear.jpg); 
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-size: cover;
+    background-position: center;
+
+    color: #fff;
+
+    position: relative;
+    transition: 500ms;
+    opacity: 1;
+}
+
+.weatherApp1::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.3);
+    z-index: 0;
+}
+
+.submit1 {
+    position: absolute;
+    top: 0;
+    right: 0;
+    padding: 1em;
+    margin: 0;
+    border: none;
+    outline: none;
+    background: #e5ba92;
+    color: #fff;
+    cursor: pointer;
+    font-size: 1.2em;
+    transition: 0.4s;
+}
+
+/* night and clear weather */
+.weatherApp2 {
+    min-height: 100vh;
+    background-image: url(/src/images/night/clear.jpg); 
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-size: cover;
+    background-position: center;
+
+    color: #fff;
+
+    position: relative;
+    transition: 500ms;
+    opacity: 1;
+}
+
+.weatherApp2::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.3);
+    z-index: 0;
+}
+
+.submit2 {
+    position: absolute;
+    top: 0;
+    right: 0;
+    padding: 1em;
+    margin: 0;
+    border: none;
+    outline: none;
+    background: #181e27;
+    color: #fff;
+    cursor: pointer;
+    font-size: 1.2em;
+    transition: 0.4s;
+}
+
+/* day and cloudy weather */
+.weatherApp3 {
+    min-height: 100vh;
+    background-image: url(/src/images/day/cloudy.jpg); 
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-size: cover;
+    background-position: center;
+
+    color: #fff;
+
+    position: relative;
+    transition: 500ms;
+    opacity: 1;
+}
+
+.weatherApp3::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.3);
+    z-index: 0;
+}
+
+.submit3 {
+    position: absolute;
+    top: 0;
+    right: 0;
+    padding: 1em;
+    margin: 0;
+    border: none;
+    outline: none;
+    background: #181e27;
+    color: #fff;
+    cursor: pointer;
+    font-size: 1.2em;
+    transition: 0.4s;
+}
+
+/* night and cloudy weather */
+
+.weatherApp4 {
+    min-height: 100vh;
+    background-image: url(/src/images/night/cloudy.jpg); 
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-size: cover;
+    background-position: center;
+
+    color: #fff;
+
+    position: relative;
+    transition: 500ms;
+    opacity: 1;
+}
+
+.weatherApp4::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.3);
+    z-index: 0;
+}
+
+.submit4 {
+    position: absolute;
+    top: 0;
+    right: 0;
+    padding: 1em;
+    margin: 0;
+    border: none;
+    outline: none;
+    background: #181e27;
+    color: #fff;
+    cursor: pointer;
+    font-size: 1.2em;
+    transition: 0.4s;
+}
+
+/* day and rainy weather */
+.weatherApp5 {
+    min-height: 100vh;
+    background-image: url(/src/images/day/rainy.jpg); 
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-size: cover;
+    background-position: center;
+
+    color: #fff;
+
+    position: relative;
+    transition: 500ms;
+    opacity: 1;
+}
+
+.weatherApp5::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.3);
+    z-index: 0;
+}
+
+.submit5 {
+    position: absolute;
+    top: 0;
+    right: 0;
+    padding: 1em;
+    margin: 0;
+    border: none;
+    outline: none;
+    background: #647d75;
+    color: #fff;
+    cursor: pointer;
+    font-size: 1.2em;
+    transition: 0.4s;
+}
+
+/* night and rainy weather */
+.weatherApp6 {
+    min-height: 100vh;
+    background-image: url(/src/images/night/rainy.jpg); 
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-size: cover;
+    background-position: center;
+
+    color: #fff;
+
+    position: relative;
+    transition: 500ms;
+    opacity: 1;
+}
+
+.weatherApp6::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.3);
+    z-index: 0;
+}
+
+.submit6 {
+    position: absolute;
+    top: 0;
+    right: 0;
+    padding: 1em;
+    margin: 0;
+    border: none;
+    outline: none;
+    background: #325c80;
+    color: #fff;
+    cursor: pointer;
+    font-size: 1.2em;
+    transition: 0.4s;
+}
+
+/* day and snowy weather */
+.weatherApp7 {
+    min-height: 100vh;
+    background-image: url(/src/images/day/snowy.jpg); 
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-size: cover;
+    background-position: center;
+
+    color: #fff;
+
+    position: relative;
+    transition: 500ms;
+    opacity: 1;
+}
+
+.weatherApp7::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.3);
+    z-index: 0;
+}
+
+.submit7 {
+    position: absolute;
+    top: 0;
+    right: 0;
+    padding: 1em;
+    margin: 0;
+    border: none;
+    outline: none;
+    background: #4d72aa;
+    color: #fff;
+    cursor: pointer;
+    font-size: 1.2em;
+    transition: 0.4s;
+}
+
+
+/* night and snowy weather */
+.weatherApp8 {
+    min-height: 100vh;
+    background-image: url(/src/images/night/snowy.jpg); 
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-size: cover;
+    background-position: center;
+
+    color: #fff;
+
+    position: relative;
+    transition: 500ms;
+    opacity: 1;
+}
+
+.weatherApp8::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.3);
+    z-index: 0;
+}
+
+.submit8 {
+    position: absolute;
+    top: 0;
+    right: 0;
+    padding: 1em;
+    margin: 0;
+    border: none;
+    outline: none;
+    background: #1b1b1b;
+    color: #fff;
+    cursor: pointer;
+    font-size: 1.2em;
+    transition: 0.4s;
+}
+
+
+
+/* default weather */
+.defaultWeather {
+    min-height: 100vh;
+    background-image: url(/src/images/night/snowy.jpg); 
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-size: cover;
+    background-position: center;
+
+    color: #fff;
+
+    position: relative;
+    transition: 500ms;
+    opacity: 1;
+}
+
+.defaultWeather::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.3);
+    z-index: 0;
+}
+
+.defaultBtn {
+    position: absolute;
+    top: 0;
+    right: 0;
+    padding: 1em;
+    margin: 0;
+    border: none;
+    outline: none;
+    background: #1b1b1b;
+    color: #fff;
+    cursor: pointer;
+    font-size: 1.2em;
+    transition: 0.4s;
 }
