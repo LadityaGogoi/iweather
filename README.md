@@ -1,70 +1,210 @@
-# Getting Started with Create React App
+js
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+// Get all necessary elements for the DOM
 
-## Available Scripts
+const app = document.querySelector('.weather-app');
+const temp = document.querySelector('.temp'); 
+const dateOutput = document.querySelector('.date');
+const timeOutput = document.querySelector('.time');
+const conditionOutput = document.querySelector('.condition');
+const nameOutput = document.querySelector('.name');
+const icon = document.querySelector('.icon');
 
-In the project directory, you can run:
+const cloudOutput = document.querySelector('.cloud');
+const humidityOutput = document.querySelector('.humidity');
+const windOutput = document.querySelector('.wind');
 
-### `npm start`
+const form = document.getElementById('form');
+const search = document.querySelector('.search');
+const btn = document.querySelector('.submit');
+const cities = document.querySelectorAll('.city');
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
 
-### `npm test`
+let cityInput = "london";
+fetchWeatherData();
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
 
-### `npm run build`
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+cities.forEach((city) => {
+    city.addEventListener('click', (e) => {
+        cityInput = e.target.innerHTML;
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+        console.log(cityInput);
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+        fetchWeatherData();
+    })
+});
 
-### `npm run eject`
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
 
-## Learn More
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+// Submit event to the list
+form.addEventListener('submit', (e) => {
+    e.preventDefault();
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+    cityInput = search.value;
 
-### Code Splitting
+    if (cityInput === "") return;
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+    fetchWeatherData();
 
-### Analyzing the Bundle Size
+    search.value = "";
+});
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
 
-### Making a Progressive Web App
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
 
-### Advanced Configuration
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
 
-### Deployment
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
 
-### `npm run build` fails to minify
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+
+
+// function to find the day of the week
+function dayOfTheWeek(day, month, year) {
+    const weekday = [
+        "Sunday",
+        "Monday",
+        "Tuesday",        
+        "Wednesday",
+        "Thrusday",
+        "Friday",
+        "Saturday"
+    ];
+    return weekday[new Date(day/month/year).getDay()];
+};
+
+
+// fetching the data for the website
+function fetchWeatherData() {
+    fetch('http://api.weatherapi.com/v1/current.json?key=2187b62e323e464b9b9195238230602&q=' + cityInput + '&aqi=no')
+
+
+    .then(response => response.json())
+    .then(data => {
+        // console.log(data);
+
+        temp.innerHTML = data.current.temp_c + "&#176;" + " celcius"; 
+        conditionOutput.innerHTML = data.current.condition.text;
+
+
+        // Get the date and time for that place
+        const date = data.location.localtime;
+        const y = parseInt(date.substr(0, 4));
+        const m = parseInt(date.substr(5, 2));
+        const d = parseInt(date.substr(8, 2));
+        const time = date.substr(11);
+        // console.log(y, m, d);
+
+
+        timeOutput.innerHTML = time;
+        const dayWeek = dayOfTheWeek(d, m, y);
+        dateOutput.innerHTML = dayWeek + " " + m + "/" + y;
+
+
+
+        nameOutput.innerHTML = data.location.name;
+
+
+
+        // getting icon 
+        icon.src = data.current.condition.icon;
+
+
+
+        // adding the weather details
+        cloudOutput.innerHTML = data.current.cloud + "%";
+        humidityOutput.innerHTML = data.current.humidity + "%";
+        windOutput.innerHTML = data.current.wind_kph + "km/h";
+
+
+        // set the default time of day
+        let timeOfDay = "day";
+        if (!data.current.is_day)
+        {
+            timeOfDay = "night";
+        }
+
+        // console.log(timeOfDay);
+        const code = data.current.condition.code;
+        if (code === 1000)
+        {
+            // Set the background to clear if the weather is clear
+            app.style.backgroundImage = 'url(/images/' + timeOfDay + '/clear.jpg)';
+
+
+            // change the button bg color depending on if its day or night
+            btn.style.background = "#e5ba92";
+            if (timeOfDay == "night")
+            {
+                btn.style.background = "#181e27";
+            }
+        }
+        else if (
+            code === 1003 ||
+            code === 1006 ||
+            code === 1009 ||
+            code === 1030 ||
+            code === 1069 ||
+            code === 1087 ||
+            code === 1135 ||
+            code === 1273 ||
+            code === 1276 ||
+            code === 1279 ||
+            code === 1282
+        ) {
+            // cloudy weather
+            app.style.backgroundImage = 'url(/images/' + timeOfDay + '/cloudy.jpg)';
+
+            btn.style.background = "#fa6d1b";
+            if (timeOfDay == "night")
+            {
+                btn.style.background = "#181e27";
+            }
+        }
+        else if (
+            code === 1063 ||
+            code === 1069 ||
+            code === 1072 ||
+            code === 1150 ||
+            code === 1153 ||
+            code === 1180 ||
+            code === 1183 ||
+            code === 1186 ||
+            code === 1189 ||
+            code === 1192 ||
+            code === 1195 ||
+            code === 1204 ||
+            code === 1207 ||
+            code === 1240 ||
+            code === 1243 ||
+            code === 1246 ||
+            code === 1249 ||
+            code === 1252
+        ) {
+            // rainy weather
+            app.style.backgroundImage = 'url(/images/' + timeOfDay + '/cloudy.jpg)';
+
+            btn.style.background = "#647d75";
+            if (timeOfDay === "night") 
+            {
+                btn.style.background = "#325c80";
+            }
+        }
+        else {
+            // snowy weather
+            app.style.backgroundImage = 'url(/images/' + timeOfDay + '/snowy.jpg)';
+
+            btn.style.background = "#4d72aa";
+            if (timeOfDay === "night")
+            {
+                btn.style.background = "#1b1b1b";
+            }
+        }
+    })
+};
