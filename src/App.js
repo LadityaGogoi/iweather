@@ -1,20 +1,20 @@
 import { useState } from "react";
 
 function App() {
-  const [name, setName] = useState('London');
-  const [temp, setTemp] = useState(7);
-  const [time, setTime] = useState('9:00 P.M');
-  const [date, setDate] = useState('Monday 2/2023');
-  const [condition, setCondition] = useState('sunny');
+  const [name, setName] = useState("");
+  const [temp, setTemp] = useState(null);
+  const [time, setTime] = useState("");
+  const [date, setDate] = useState("");
+  const [condition, setCondition] = useState("");
   const [iconSrc, setIconSrc] = useState(null);
-  const [cloud, setCloud] = useState(22);
-  const [humidity, setHumidity] = useState(80);
-  const [wind, setWind] = useState(13);
+  const [cloud, setCloud] = useState(null);
+  const [humidity, setHumidity] = useState(null);
+  const [wind, setWind] = useState(null);
 
 
 
   const [searchValue, setSeachValue] = useState("");
-  const [timeOfDay, setTimeOfDay] = useState("day");
+  const [timeOfDay, setTimeOfDay] = useState("");
   const [code, setCode] = useState(100);
 
 
